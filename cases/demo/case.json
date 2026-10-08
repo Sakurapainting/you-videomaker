@@ -1,0 +1,44 @@
+{
+  "slug": "demo",
+  "title": "新项目第一阶段：先做可验证的纵向切片",
+  "question": "在需求仍会变化、且第一阶段不接外部 API 时，项目应该怎样开始？",
+  "audience": "项目发起人与实现者",
+  "sources": [
+    { "id": "s1", "title": "项目简报", "file": "brief.md", "kind": "primary" },
+    { "id": "s2", "title": "约束记录", "file": "constraints.md", "kind": "primary" },
+    { "id": "s3", "title": "验收记录", "file": "acceptance.md", "kind": "primary" }
+  ],
+  "claims": [
+    { "id": "c1", "text": "需求仍在变化，第一阶段需要先验证端到端路径。", "status": "supported", "sources": ["s1"] },
+    { "id": "c2", "text": "本地标准库实现可以降低验证阶段的依赖成本。", "status": "inference", "sources": ["s2"] },
+    { "id": "c3", "text": "是否在第二阶段接入外部模型 API，取决于纵向切片的验收结果。", "status": "open", "sources": ["s1", "s3"] }
+  ],
+  "options": [
+    {
+      "id": "slice",
+      "name": "先做本地纵向切片",
+      "benefits": ["快速验证完整路径", "失败成本低"],
+      "costs": ["第一版能力范围较窄"],
+      "risks": ["过早固化接口"],
+      "evidence": ["c1", "c2", "c3"],
+      "score": 5
+    },
+    {
+      "id": "api",
+      "name": "先接外部 API",
+      "benefits": ["早期能力看起来更完整"],
+      "costs": ["增加配置与网络依赖"],
+      "risks": ["问题来源难以隔离"],
+      "evidence": ["c1", "c2"],
+      "score": 2
+    }
+  ],
+  "decision": {
+    "choice": "slice",
+    "why": ["c1", "c2"],
+    "conditions": ["先固定一个真实使用场景", "所有中间产物保存为文件"],
+    "next_steps": ["建立结构化输入格式", "实现 check 命令并覆盖失败输入", "实现确定性报告渲染", "用一个真实案例跑通闭环"],
+    "acceptance": ["没有外部 API 也能从输入生成报告", "错误引用会让 check 命令失败", "报告能列出未决问题和下一步"],
+    "open_questions": ["c3"]
+  }
+}

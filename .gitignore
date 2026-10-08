@@ -1,0 +1,5 @@
+node_modules/
+cases/**/out/
+*.local.json
+.DS_Store
+Thumbs.db
