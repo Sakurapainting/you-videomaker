@@ -1,6 +1,6 @@
-# GPT Forge
+# You Videomaker
 
-GPT Forge is a small, model-agnostic project workspace for turning an ambiguous request into a reviewable decision package.
+You Videomaker is a small, model-agnostic project workspace for turning an ambiguous request into a reviewable decision package.
 
 The model does the work that benefits from language and reasoning: understanding the request, extracting claims, comparing options, stating uncertainty, and proposing a sequence of actions. The repository keeps that work inspectable. Sources live beside the case, claims cite source IDs, and a deterministic checker rejects unsupported decisions before a report is rendered.
 

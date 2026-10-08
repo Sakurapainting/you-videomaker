@@ -6,7 +6,7 @@ const path = require('node:path');
 const { validateCase, renderCase } = require('../src/core');
 
 function fixture() {
-  const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'gpt-forge-'));
+  const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'you-videomaker-'));
   fs.mkdirSync(path.join(dir, 'sources'));
   fs.writeFileSync(path.join(dir, 'sources', 's.md'), 'source');
   fs.writeFileSync(path.join(dir, 'case.json'), JSON.stringify({

@@ -1,4 +1,4 @@
-# GPT Forge Agent Entry
+# You Videomaker Agent Entry
 
 Read `README.md`, then `docs/workflow.md` and `docs/schema.md` before editing a case.
 
