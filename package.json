@@ -4,10 +4,16 @@
   "private": true,
   "description": "An evidence-backed workspace for turning messy requests into reviewable project decisions.",
   "type": "commonjs",
-  "engines": { "node": ">=22.12" },
+  "engines": {
+    "node": ">=22.12"
+  },
   "scripts": {
     "test": "node --test",
     "check": "node tools/check.js cases/demo",
-    "render": "node tools/render.js cases/demo"
+    "render": "node tools/render.js cases/demo",
+    "video": "node tools/video.js cases/chatgpt-10s-ad --srt"
+  },
+  "dependencies": {
+    "puppeteer-core": "^25.12.0"
   }
 }

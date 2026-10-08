@@ -8,6 +8,15 @@ You Videomaker 是一个不依赖具体模型的项目工作区，用来把模�
 
 ## 快速开始
 
+先安装 Node.js 22.12 或更新版本、Chrome、带 `libx264` 的 FFmpeg/FFprobe，以及 Python 3。旁白生成还需要安装 `edge-tts`：
+
+```powershell
+npm install
+python -m pip install edge-tts
+```
+
+`edge-tts` 用于把案例中的旁白文本合成为音轨，因此合成旁白时需要网络；项目本身不调用大模型 API。Chrome、FFmpeg、FFprobe 或 Python 不在常见位置时，可分别通过 `VIDEOMAKER_CHROME`、`VIDEOMAKER_FFMPEG`、`VIDEOMAKER_FFPROBE`、`VIDEOMAKER_PYTHON` 指定路径。
+
 在仓库根目录执行：
 
 ```powershell
@@ -16,6 +25,16 @@ node tools/check.js cases/demo
 node tools/render.js cases/demo
 Get-Content cases/demo/out/brief.md
 ```
+
+生成视频案例：
+
+```powershell
+npm run video
+```
+
+这条命令会从 `cases/chatgpt-10s-ad/case.json` 依次生成 brief、HTML 动画、逐帧画面、旁白、最终 MP4、SRT 和视频验收结果。视频依赖 Chrome、FFmpeg/FFprobe、Python 与 `edge-tts`；具体字段见 [`docs/schema.md`](docs/schema.md) 的“视频生产”一节。
+
+成片位于 `cases/chatgpt-10s-ad/out/chatgpt-10s-ad-1080x1920-10s.mp4`，同目录的 `video-check.json` 会记录 FFprobe 的验收结果。`out/` 是可重建的生成目录，不纳入 Git。
 
 创建一个新案例：
 

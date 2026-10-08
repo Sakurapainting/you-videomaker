@@ -8,12 +8,31 @@ The project keeps source material and intermediate decisions in the repository, 
 
 ## Quick start
 
+Install Node.js 22.12 or later, Chrome, FFmpeg/FFprobe with `libx264`, and Python 3. Narration also needs `edge-tts`:
+
+```powershell
+npm install
+python -m pip install edge-tts
+```
+
+`edge-tts` turns the case narration text into an audio track, so narration synthesis needs network access; the project itself does not call a large-language-model API. If Chrome, FFmpeg, FFprobe, or Python is installed in a non-standard location, set `VIDEOMAKER_CHROME`, `VIDEOMAKER_FFMPEG`, `VIDEOMAKER_FFPROBE`, or `VIDEOMAKER_PYTHON`.
+
 ```powershell
 npm test
 node tools/check.js cases/demo
 node tools/render.js cases/demo
 Get-Content cases/demo/out/brief.md
 ```
+
+Generate the video example:
+
+```powershell
+npm run video
+```
+
+This command generates the brief, HTML animation, rendered frames, narration, final MP4, SRT, and video verification result from `cases/chatgpt-10s-ad/case.json`. Video production requires Chrome, FFmpeg/FFprobe, Python, and `edge-tts`; see the video production section in [`docs/schema.md`](docs/schema.md) for the case fields.
+
+The final file is `cases/chatgpt-10s-ad/out/chatgpt-10s-ad-1080x1920-10s.mp4`. `video-check.json` in the same directory records the FFprobe verification. The generated `out/` directory is reproducible and ignored by Git.
 
 Create a new case:
 

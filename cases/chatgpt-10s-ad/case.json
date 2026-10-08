@@ -1,0 +1,87 @@
+{
+  "slug": "chatgpt-10s-ad",
+  "title": "10 秒 ChatGPT 介绍小广告",
+  "question": "如何用一个 10 秒竖屏短广告，让首次接触的观众快速理解 ChatGPT 是什么以及能帮他们做什么？",
+  "audience": "移动端第一次接触 ChatGPT、需要快速产出文字、计划、学习内容或代码的观众",
+  "sources": [
+    { "id": "s1", "title": "用户需求", "file": "user-request.md", "kind": "primary" },
+    { "id": "s2", "title": "ChatGPT 能力依据", "file": "official-chatgpt.md", "kind": "primary", "url": "https://openai.com/chatgpt/" },
+    { "id": "s3", "title": "创意简报与验收口径", "file": "creative-brief.md", "kind": "primary" }
+  ],
+  "claims": [
+    { "id": "c1", "text": "成片时长必须为 10 秒，广告需要让首次接触者快速理解产品。", "status": "supported", "sources": ["s1"] },
+    { "id": "c2", "text": "ChatGPT 是通过对话帮助用户完成任务的 AI 助手，相关使用场景包括写作、头脑风暴、学习和编码。", "status": "supported", "sources": ["s2"] },
+    { "id": "c3", "text": "前 1.5 秒应出现产品名或可辨识的对话界面，字幕和 CTA 需要适配 9:16 手机预览。", "status": "supported", "sources": ["s3"] },
+    { "id": "c4", "text": "在 10 秒内展示一条从输入想法到得到草稿再到继续追问的连续动作，比并列罗列多个功能更容易形成单一记忆点。", "status": "inference", "sources": ["s1", "s2", "s3"] },
+    { "id": "c5", "text": "是否可以使用 OpenAI 官方 logo、品牌字体和真实产品截图，需要在发布前依据品牌规范确认。", "status": "open", "sources": ["s1", "s2", "s3"] },
+    { "id": "c6", "text": "竖屏 9:16、强对比字幕和明确的结尾 CTA 是本案的制作条件。", "status": "inference", "sources": ["s1", "s3"] }
+  ],
+  "options": [
+    {
+      "id": "conversation",
+      "name": "对话变成果（竖屏 UI 动画）",
+      "benefits": ["单一动作在 10 秒内讲清产品用途", "能直接展示 ChatGPT 对话形态", "素材量少，便于先做可验证样片"],
+      "costs": ["需要制作一套中性对话界面", "需要为字幕和输入动画做节奏设计"],
+      "risks": ["若 UI 过于像真实产品，可能触发品牌素材授权问题", "示例回答不能暗示结果保证"],
+      "evidence": ["c1", "c2", "c3", "c4", "c5", "c6"],
+      "score": 5,
+      "reason": "它用一条可视化对话链路同时满足时长、理解速度和能力边界。",
+      "conditions": ["使用中性 UI mock，待品牌规范确认后再替换官方素材", "只展示写作/计划类示例，不加入未经来源支持的承诺"],
+      "next_steps": ["制作 9:16 动态分镜并录制一版中性 UI", "用手机预览检查首屏识别和字幕安全区"],
+      "acceptance": ["10.0 秒成片在 1.5 秒内出现 ChatGPT 名称或对话界面", "最后 CTA 停留至少 1.5 秒且所有字幕可读"]
+    },
+    {
+      "id": "montage",
+      "name": "三场景快切（写作、学习、编码）",
+      "benefits": ["覆盖更多产品使用场景", "视觉变化更丰富"],
+      "costs": ["每个场景只有约 2 秒，制作和信息密度更高", "需要三套画面、字幕和转场"],
+      "risks": ["观众可能只记住场景而不理解 ChatGPT 是什么", "小屏快切容易造成文字不可读"],
+      "evidence": ["c1", "c2", "c3", "c6"],
+      "score": 3,
+      "reason": "能力覆盖较广，但在 10 秒约束下会牺牲单一记忆点。",
+      "conditions": ["每个场景必须使用相同 UI 语言", "所有字幕必须能在手机预览中完整阅读"],
+      "next_steps": ["先制作三个场景的低保真 animatic", "比较完播后对产品名的回忆度"],
+      "acceptance": ["每个场景的字幕都能读完", "测试观众能说出 ChatGPT 及至少一个使用场景"]
+    }
+  ],
+  "video": {
+    "format": { "width": 1080, "height": 1920, "fps": 30, "duration": 10 },
+    "theme": { "background": "#101c19", "ink": "#f3f7f4", "accent": "#13c89a", "muted": "#9bb2aa" },
+    "voice": {
+      "voice": "zh-CN-YunyangNeural",
+      "rate": "+0%",
+      "text": "一个想法？把它说出来。ChatGPT 帮你把周末旅行变成一份清晰的计划。还可以继续追问，让答案更贴合。ChatGPT，和你的想法聊下去。"
+    },
+    "scenes": [
+      { "id": "hook", "from": 0, "to": 1.5, "kind": "hook", "title": "ChatGPT", "body": "一个想法？" },
+      { "id": "draft", "from": 1.5, "to": 4.5, "kind": "conversation", "title": "把想法说出来", "prompt": "帮我把周末旅行变成计划", "reply": "路线 · 时间 · 预算" },
+      { "id": "refine", "from": 4.5, "to": 7.5, "kind": "conversation", "title": "继续追问，越聊越清楚", "prompt": "再简洁一点", "reply": "三步安排，今天就能出发" },
+      { "id": "cta", "from": 7.5, "to": 10, "kind": "cta", "title": "ChatGPT", "body": "和你的想法聊下去。" }
+    ]
+  },
+  "decision": {
+    "choice": "conversation",
+    "why": ["c1", "c2", "c3", "c4", "c6"],
+    "conditions": [
+      "输出 1080x1920、9:16 竖屏版本，时长锁定为 10.0 秒（允许误差 ±0.1 秒）",
+      "使用深色背景、白色输入框和青绿色强调色；字幕放在手机安全区内并保持高对比",
+      "在品牌规范确认前，只使用中性 UI mock，不使用官方 logo、品牌字体或真实产品截图",
+      "旁白和字幕只表达‘通过对话帮助写作、计划、学习或编码’，不承诺准确率、速度或结果"
+    ],
+    "next_steps": [
+      "0.0-1.5 秒：空白对话界面出现，输入框打出‘我有个想法…’，旁白‘一个想法？’",
+      "1.5-4.5 秒：输入‘帮我把周末旅行变成计划’，回答卡片快速生成，字幕‘把想法说出来’",
+      "4.5-7.5 秒：用户追加‘再简洁一点’，回答卡片更新，字幕‘继续追问，越聊越清楚’",
+      "7.5-10.0 秒：画面收束到 ChatGPT 字标和 CTA‘把想法，变成下一步’，旁白‘ChatGPT，和你的想法聊下去。’",
+      "导出手机预览版，检查首屏识别、字幕安全区、音画同步和品牌素材边界"
+    ],
+    "acceptance": [
+      "导出文件时长为 10.0 秒 ±0.1 秒，画幅为 1080x1920（9:16）",
+      "前 1.5 秒出现 ChatGPT 名称或可辨识的对话界面，核心字幕在手机预览中可读",
+      "最后 CTA 至少停留 1.5 秒，且旁白、字幕和画面表达一致",
+      "全片没有未经来源支持的能力承诺，也没有未经确认的官方 logo、字体或产品截图",
+      "品牌素材授权问题 c5 在发布前得到明确答复"
+    ],
+    "open_questions": ["c5"]
+  }
+}

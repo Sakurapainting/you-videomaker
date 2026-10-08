@@ -1,5 +1,8 @@
 node_modules/
 cases/**/out/
+.npm-cache/
+__pycache__/
+*.pyc
 *.local.json
 .DS_Store
 Thumbs.db
