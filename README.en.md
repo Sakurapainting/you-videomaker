@@ -4,7 +4,7 @@ You Videomaker is a small, model-agnostic project workspace for turning an ambig
 
 The model does the work that benefits from language and reasoning: understanding the request, extracting claims, comparing options, stating uncertainty, and proposing a sequence of actions. The repository keeps that work inspectable. Sources live beside the case, claims cite source IDs, and a deterministic checker rejects unsupported decisions before a report is rendered.
 
-This follows the useful part of the `D:\ft` workflow: keep the source material and intermediate decisions in the repository, make the final artifact reproducible, and use automated gates for the parts a machine can check. It does not call a model API. A person or an agent can edit `case.json`, then run the local tools.
+The project keeps source material and intermediate decisions in the repository, makes the final artifact reproducible, and uses automated gates for the parts a machine can check. It does not call a model API. A person or an agent can edit `case.json`, then run the repository tools.
 
 ## Quick start
 

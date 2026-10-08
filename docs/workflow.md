@@ -1,6 +1,6 @@
 # Workflow
 
-You Videomaker separates synthesis from verification. The model can read a large context and propose a coherent plan; the local tools make the proposal traceable and repeatable.
+You Videomaker separates synthesis from verification. The model can read a large context and propose a coherent plan; the repository tools make the proposal traceable and repeatable.
 
 1. Create a case with `node tools/new.js <slug> --title "..." --question "..."`.
 2. Write source notes as Markdown files in `cases/<slug>/sources/`. Keep one source or experiment per file and record its date or version when relevant.
